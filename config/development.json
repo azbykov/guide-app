@@ -1,0 +1,23 @@
+{
+  "server":  {
+    "socket": 3000
+  },
+
+  "log": {
+    "console": {
+      "colorize": true,
+      "level": "debug"
+    }
+  },
+  "mongoose": {
+    "uri": "mongodb://localhost/guide-app",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        }
+      }
+    }
+  },
+  "secret": "test"
+}

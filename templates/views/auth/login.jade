@@ -1,0 +1,14 @@
+extends ../../layouts/default
+include ../../mixins/flash-messages
+
+block content
+    +flash-messages(messages)
+
+    form(action = "/auth/login" method="post")
+        div(class="form-group")
+            label Email Адрес
+            input(type="text" class="form-control" name="email")
+        div(class="form-group")
+            label Пароль
+            input(type="password" class="form-control" name="password")
+        button(type="submit" class="btn btn-warning btn-lg") Вход!

@@ -1,0 +1,18 @@
+{
+  "server":  {
+    "socket": "/tmp/guide-app.sock"
+  },
+
+  "log": {
+    "console": {
+      "colorize": true,
+      "level": "info"
+    },
+    "file": {
+      "level": "info",
+      "filename": "",
+      "json": false
+    }
+  },
+  "secret": "pErez-Pavel-9B7d"
+}

@@ -1,0 +1,79 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+
+    //- HTML HEADER
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+        title= title || 'guide-app'
+        //link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+        //- Customise the stylesheet for your site by editing /public/styles/site.less
+        //- All .less files will be automatically compiled and minified in production.
+        link(href="/css/style.css", rel="stylesheet")
+        <!-- Latest compiled and minified CSS -->
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+
+        //- Include template-specific stylesheets by extending the css block
+        block css
+
+        //- Add any other template-specific HEAD tags by extending the head block
+        block head
+
+    //- HTML BODY
+    body
+        //- HEADER
+        nav(class="navbar navbar-inverse" style="border-radius: 0 !important; margin-bottom: 0!important")
+            div.container
+                div.navbar-header
+                    button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a(class="navbar-brand" href="/") SPb Guide
+                div(id="navbar" class="navbar-collapse collapse")
+                    ul.nav.navbar-nav.navbar-right
+                        if user
+                            li: a(class="btn btn-success" href="/posts/new") New Post
+                            li: a(href='/auth/signout') Sign Out
+                        else
+                            li: a(href='/auth/login') Sign In
+                            //li
+                            //    form(class="navbar-form navbar-right" action="auth/login" method="post")
+                            //        div.form-group
+                            //            input(type="text" placeholder="Email" class="form-control")
+                            //        div.form-group
+                            //            input(type="password" placeholder="Password" class="form-control")
+                            //        button(type="submit" class="btn btn-success") Sign in
+        //- Flash messages allow you to display once-off status messages to users, e.g. form
+        //- validation errors, success messages, etc.
+        +flash-messages(messages)
+
+        //- The content block should contain the body of your template's content
+        block content
+
+
+        hr
+        //- FOOTER
+        footer
+            p &copy; 2016 Company, Inc.
+
+        //- JAVASCRIPT
+
+        //- jQuery 1.11.3 is included by default, and required by both Bootstrap
+        //- and the KeystoneJS Content Editor. If you are not targeting IE8,
+        //- you can upgrade to 2.1.4 (also bundled) for better performance.
+        //script(src='/js/jquery/jquery-1.11.3.min.js')
+
+        //- Customise which Bootstrap javascript files are served by including
+        //- them specifically here, instead of bootstrap-3.3.5.min.js
+        //script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
+        script(src='http://code.jquery.com/jquery-3.1.1.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous')
+        //- Include template-specific javascript files by extending the js block
+        block js
